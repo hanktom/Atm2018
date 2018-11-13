@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
                     .edit()
                     .putString("USERID", userid)
                     .apply();
+            setResult(RESULT_OK);
             finish();
         }
     }
