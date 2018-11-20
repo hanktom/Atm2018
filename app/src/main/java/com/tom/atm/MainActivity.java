@@ -24,9 +24,19 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode != RESULT_OK) {
                 finish();
             } else {
-                // TODO: check nickname, age, gender exists
-                Intent nickname = new Intent(this, NicknameActivity.class);
-                startActivity(nickname);
+                logon = true;
+                String nickname = getSharedPreferences("user", MODE_PRIVATE)
+                        .getString("NICKNAME", null);
+                int age = getSharedPreferences("user", MODE_PRIVATE)
+                        .getInt("AGE", 0);
+                int gender = getSharedPreferences("user", MODE_PRIVATE)
+                        .getInt("GENDER", 0);
+
+                if (nickname == null || age == 0 || gender == 0) {
+                    Intent nick = new Intent(this, NicknameActivity.class);
+                    startActivity(nick);
+                }
+
             }
         }
     }
