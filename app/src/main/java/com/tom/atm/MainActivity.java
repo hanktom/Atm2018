@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity {
                 finish();
             } else {
                 logon = true;
-                if (user.isValid()){
+                if (!user.isValid()){
                     Intent nick = new Intent(this, NicknameActivity.class);
                     startActivity(nick);
                 }
