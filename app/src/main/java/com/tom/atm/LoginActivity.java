@@ -1,5 +1,6 @@
 package com.tom.atm;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,12 @@ public class LoginActivity extends AppCompatActivity {
         String userid = getSharedPreferences("atm", MODE_PRIVATE)
                 .getString("USERID", "");
         edUserid.setText(userid);
+        MyDBHelper helper = new MyDBHelper(this, "expense.db", null, 1);
+        ContentValues values = new ContentValues();
+        values.put("cdate", "2018-12-19");
+        values.put("info", "Parking");
+        values.put("amount", 30);
+        helper.getWritableDatabase().insert("exp", null, values);
     }
 
     public void login(View view) {
