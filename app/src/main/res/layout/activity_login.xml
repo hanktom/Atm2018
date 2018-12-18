@@ -45,6 +45,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="1234"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
